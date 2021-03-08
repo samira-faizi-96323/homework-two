@@ -11,7 +11,10 @@ import DetailListItem from '../components/DetailListItem'
 
 import colors from '../utils/colors'
 
-export default function Profile({name, phone, email}){
+export default function Profile(props){
+    const {route}=props;
+    const {item}= route.params
+    const {name, phone, email}=item
     return (
         <View style={styles.container}>
             <View style={styles.thumbnailSection}>

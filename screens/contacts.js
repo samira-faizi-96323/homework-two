@@ -3,6 +3,7 @@ import {
     View,
     Text,
     FlatList,
+    TouchableOpacity,
     StyleSheet
 } from 'react-native'
 
@@ -17,19 +18,22 @@ const contacts=[
     {id: '5', name:'faizi', phone:'0777849289', email:'faizi@gmail.com'}
 ]
 
-export default function Contacts(){
+export default function Contacts(navigation){
    return(
     <FlatList
     data={contacts}
     keyExtractor={(item)=>item.id}
     renderItem={({item}) =>{
-        return <ContactListItem name={item.name} phone={item.phone} />
+        return <ContactListItem name={item.name} phone={item.phone}onpress={()=>navigation.navigate('profile'),{item:item}} />
     }}
    />
+
    )
   
 } 
+<TouchableOpacity style={styles.floatbutton} onPress={()=>navigation.navigate('creatcontact')}>
 
+</TouchableOpacity>
 const styles = StyleSheet.create({
   
 
